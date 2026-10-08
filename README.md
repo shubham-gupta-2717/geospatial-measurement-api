@@ -277,9 +277,7 @@ The assignment focuses on API and geospatial processing rather than distributed 
 
 The current implementation processes the upload once and keeps its parsed measurement results in the service layer, so a subsequent measurements request does not repeat expensive geospatial processing.
 
-### ZIP security
 
-ZIP entries are validated after path resolution to prevent path traversal. The archive must contain exactly one Shapefile.
 
 ## Error Handling
 
@@ -315,24 +313,9 @@ The test suite covers:
 - Upload validation
 - Basic API endpoints
 
-## Future Scope
 
-- PostgreSQL/PostGIS persistence
-- Object storage such as S3/GCS
-- Background processing using Celery/RQ for very large files
-- Streaming uploads for large datasets
-- Authentication and API keys
-- Rate limiting
-- Persistent job status (`PENDING`, `PROCESSING`, `COMPLETED`, `FAILED`)
-- More measurement types such as perimeter and point-to-point distance
-- More sophisticated CRS selection for datasets spanning multiple UTM zones
-- Support for GeoJSON and GeoPackage
-- Observability with structured logging, metrics, and tracing
-- CI/CD pipeline with automated tests and deployment
 
-## Learning
 
-This project was built to strengthen practical backend engineering skills around FastAPI, file uploads, validation, geospatial data processing, CRS transformations, API design, error handling, testing, and containerization. A key learning was that geographic coordinates in EPSG:4326 should not be used directly for area or distance calculations because their units are degrees rather than meters.
 
 ## License
 
